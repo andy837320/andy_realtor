@@ -3,10 +3,11 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import { Flex, Box, Text, Icon } from "@chakra-ui/react";
 import { BsFilter } from "react-icons/bs";
-import SearchFilters from "../components/SearchFilters";
+
 import Property from "../components/Property";
+import SearchFilters from "../components/SearchFilters";
+import { baseUrl, fetchApi } from "../utils/fetchApi";
 import noresult from "../assets/images/noresult.svg";
-import { fetchApi, baseUrl } from "../utils/fetchApi";
 
 const Search = ({ properties }) => {
   const [searchFilters, setSearchFilters] = useState(false);
@@ -15,18 +16,18 @@ const Search = ({ properties }) => {
   return (
     <Box>
       <Flex
+        onClick={() => setSearchFilters(!searchFilters)}
         cursor="pointer"
-        bg="gray.300"
+        bg="gray.100"
         borderBottom="1px"
-        borderColor="gray.400"
+        borderColor="gray.200"
         p="2"
         fontWeight="black"
         fontSize="lg"
         justifyContent="center"
         alignItems="center"
-        onClick={() => setSearchFilters((prevFilters) => !prevFilters)}
       >
-        <Text> Search Property By Filters</Text>
+        <Text>Search Property By Filters</Text>
         <Icon paddingLeft="2" w="7" as={BsFilter} />
       </Flex>
       {searchFilters && <SearchFilters />}
@@ -42,13 +43,13 @@ const Search = ({ properties }) => {
         <Flex
           justifyContent="center"
           alignItems="center"
-          flexDirection="column"
+          flexDir="column"
           marginTop="5"
           marginBottom="5"
         >
-          <Image alt="no result" src={noresult} />
-          <Text fontSize="2xl" marginTop="3">
-            No Results Found
+          <Image src={noresult} alt="noresult" width="50px" height="100px" />
+          <Text fontSize="xl" marginTop="3">
+            No Result Found.
           </Text>
         </Flex>
       )}

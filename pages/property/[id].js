@@ -1,8 +1,10 @@
-import { Box, Flex, Spacer, Text, Avatar } from "@chakra-ui/react";
+import { Box, Flex, Spacer, Text } from "@chakra-ui/layout";
+import { Avatar } from "@chakra-ui/avatar";
 import { FaBed, FaBath } from "react-icons/fa";
 import { BsGridFill } from "react-icons/bs";
 import { GoVerified } from "react-icons/go";
 import millify from "millify";
+
 import { baseUrl, fetchApi } from "../../utils/fetchApi";
 import ImageScrollbar from "../../components/ImageScrollbar";
 
@@ -32,7 +34,7 @@ const PropertyDetails = ({
           {isVerified && <GoVerified />}
         </Box>
         <Text fontWeight="bold" fontSize="lg">
-          DOLLAR {price} {rentFrequency && `/${rentFrequency}`}
+          AED {price} {rentFrequency && `/${rentFrequency}`}
         </Text>
         <Spacer />
         <Avatar size="sm" src={agency?.logo?.url}></Avatar>
@@ -121,6 +123,7 @@ const PropertyDetails = ({
     </Box>
   </Box>
 );
+
 export default PropertyDetails;
 
 export async function getServerSideProps({ params: { id } }) {

@@ -51,10 +51,10 @@ export default function ImageSrollbar({ data }) {
           p="1"
         >
           <Image
-            alt="property"
             placeholder="blur"
             blurDataURL={item.url}
             src={item.url}
+            alt="imagescrollbar"
             width={1000}
             height={500}
             sizes="(max-width: 500px) 100px, (max-width: 1023px) 400px, 1000px"
